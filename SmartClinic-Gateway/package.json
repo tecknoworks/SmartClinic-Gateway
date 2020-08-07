@@ -1,0 +1,21 @@
+{
+  "name": "SmartClinic-Gateway",
+  "description": "Express Gateway Instance Bootstraped from Command Line",
+  "repository": {},
+  "license": "UNLICENSED",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "example": "0.0.0",
+    "express-gateway": "^1.16.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.0"
+  },
+  "scripts": {
+    "start": "nodemon babel-node server.js"
+  },
+  "author": ""
+}
