@@ -9,21 +9,21 @@ apiEndpoints:
     paths: '/ip'
   auth:
     host: localhost
-    paths: ['/auth','/auth/*']
-  user:
+    paths: ['/auth','/auth/*'] 
+  review:
     host: localhost
-    paths: ['/users','/users/*']
-  test:
+    paths: ['/review','/review/*']
+  appointment:
     host: localhost
-    paths: ['/test','/test/*']
+    paths: ['/appointment','/appointment/*']
 serviceEndpoints:
   httpbin:
     url: 'https://httpbin.org'
   authService:
     url: 'http://localhost:9000'
-  userService:
+  reviewService: 
     url: 'http://localhost:9001'
-  testService:
+  appointmentService:
     url: 'http://localhost:9002'
 policies:
   - basic-auth
@@ -51,24 +51,24 @@ pipelines:
           - action:
               serviceEndpoint: authService
               changeOrigin: true
-  userPipeline:
+  reviewPipeline:
     apiEndpoints:
-      - user
+      - review
     policies:
     # Uncomment `key-auth:` when instructed to in the Getting Started guide.
     # - key-auth:
       - proxy:
           - action:
-              serviceEndpoint: userService
+              serviceEndpoint: reviewService
               changeOrigin: true
-  testPipeline:
+  appointmentPipeline:
     apiEndpoints:
-      - test
+      - appointment
     policies:
     # Uncomment `key-auth:` when instructed to in the Getting Started guide.
     # - key-auth:
       - proxy:
           - action:
-              serviceEndpoint: testService
+              serviceEndpoint: appointmentService
               changeOrigin: true
 
